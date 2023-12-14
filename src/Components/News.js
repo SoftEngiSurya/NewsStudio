@@ -8,7 +8,7 @@ export class News extends Component {
   constructor(){
     super();
     this.state ={
-        articles:this.articles,
+        articles:[],
         loading:false
     }
 }
@@ -29,7 +29,7 @@ export class News extends Component {
         {this.state.articles.map((element)=>{
 
           return  <div className="col-md-3" key={element.url}>
-        <NewsItems  title={element.title} description={element.description?element.description.slice(0,70):""} imageUrl={element.urlToImage?element.urlToImage:""} newsUrl={element.url}/>
+        <NewsItems  title={element.title} description={element.description?element.description:""} imageUrl={element.urlToImage?element.urlToImage:""} newsUrl={element.url}/>
             </div>
 
 
