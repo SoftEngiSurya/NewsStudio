@@ -23,31 +23,36 @@ export class News extends Component {
 
   handlePre = async () => {
     console.log("Previous")
+    
 
-    console.log("Next")
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=7cfe73c637a94127bac4a1965b716113&page=${this.state.page - 1}`;
-    let data = await fetch(url);
-    let parsedData = await data.json()
-    console.log(parsedData);
-
-    this.setState({
-      page: this.state.page - 1,
-      articles: parsedData.articles
-    })
-
-
-  }
-  handleNext = async () => {
-    console.log("Next")
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=7cfe73c637a94127bac4a1965b716113&page=${this.state.page + 1}`;
-    let data = await fetch(url);
-    let parsedData = await data.json()
-    console.log(parsedData);
-
-    this.setState({
-      page: this.state.page + 1,
-      articles: parsedData.articles
-    })
+      let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=7cfe73c637a94127bac4a1965b716113&page=${this.state.page - 1}`;
+      let data = await fetch(url);
+      let parsedData = await data.json()
+      console.log(parsedData);
+      
+      this.setState({
+        page: this.state.page - 1,
+        articles: parsedData.articles
+      })
+      
+      
+    }
+    handleNext = async () => {
+      console.log("Next")
+      if(this.state.page+1>Math.ceil(this.state.totalResults/20)){
+        
+      }else{
+        
+        let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=7cfe73c637a94127bac4a1965b716113&page=${this.state.page + 1}`;
+        let data = await fetch(url);
+        let parsedData = await data.json()
+        console.log(parsedData);
+        
+        this.setState({
+          page: this.state.page + 1,
+          articles: parsedData.articles
+        })
+      }
   }
 
   
@@ -55,7 +60,7 @@ export class News extends Component {
   render() {
     return (
       <div className="container my-3">
-      <h2>News By Surya Top Headlines</h2>
+      <h2>News By Suryawanshi Top Headlines</h2>
       <div className="row">
         {this.state.articles.map((element) => {
 
