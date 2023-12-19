@@ -7,16 +7,13 @@ export class News extends Component {
   static defaultProps = {
     country: 'in',
     pageSize: 8,
-    category:'technology'
+    category:'general'
   }
   static propTypes = {
     country: PropTypes.string,
     pageSize: PropTypes.number,
     category: PropTypes.string
   }
-
-  articles = [];
-
   constructor() {
     super();
     this.state = {
@@ -40,15 +37,7 @@ export class News extends Component {
 
 
   async componentDidMount() {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=51f7f7893f244f8e9d4e7471212e01ab&page=1&pageSize=${this.props.pageSize}`;
-    this.setState({ loading: true });
-    let data = await fetch(url);
-    let parsedData = await data.json();
-    this.setState({
-      articles: parsedData.articles,
-      totalResults: parsedData.totalResults,
-      loading: false,
-    });
+     this.updateNews()
   }
 
   handlePre = async () => {
