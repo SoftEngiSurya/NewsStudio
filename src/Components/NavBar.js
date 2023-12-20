@@ -22,7 +22,7 @@ export class NavBar extends Component {
           <Link className="nav-link " aria-current="page" to="/india">India</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link " aria-current="page" to="/usa">USA</a>
+          <a className="nav-link " aria-current="page" href="/usa">USA</a>
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/business">Business </Link></li>
